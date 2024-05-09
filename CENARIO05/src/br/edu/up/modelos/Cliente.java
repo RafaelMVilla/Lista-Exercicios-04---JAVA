@@ -4,6 +4,14 @@ public class Cliente {
     private String nomeResponsavel;
     private int qtdPessoas;
 
+    public Cliente(){
+        
+    }
+
+    public Cliente(String nomeResponsavel, int qtdPessoas) {
+        this.nomeResponsavel = nomeResponsavel;
+        this.qtdPessoas = qtdPessoas;
+    }
     public String getNomeResponsavel() {
         return nomeResponsavel;
     }

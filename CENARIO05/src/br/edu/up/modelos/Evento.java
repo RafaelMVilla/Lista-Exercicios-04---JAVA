@@ -10,6 +10,22 @@ public class Evento {
     private int qtdVendido;
     private double precoIngresso;
 
+    public Evento(){
+        
+    }
+
+    public Evento(String nome, int dia, int mes, int ano, String local, int lotacaoMax, int qtdVendido,
+            double precoIngresso) {
+        this.nome = nome;
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+        this.local = local;
+        this.lotacaoMax = lotacaoMax;
+        this.qtdVendido = qtdVendido;
+        this.precoIngresso = precoIngresso;
+    }
+
     public String getNome() {
         return nome;
     }
