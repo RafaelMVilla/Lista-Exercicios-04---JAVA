@@ -2,10 +2,14 @@ package br.edu.up.controles;
 
 import br.edu.up.modelos.Evento;
 import br.edu.up.modelos.Cliente;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ReservaEvento {
 
+    List<Evento> listaEventos = new ArrayList<>();
+    List<Cliente> listaClientes = new ArrayList<>();
     Evento reserva = new Evento();
     Cliente cliente = new Cliente();
     Scanner leitor = new Scanner(System.in);
@@ -34,6 +38,8 @@ public class ReservaEvento {
         System.out.println("DIGITE O PREÇO DO INGRESSO: ");
         reserva.setPrecoIngresso(leitor.nextDouble());
 
+        listaEventos.add(reserva);
+
         leitor.nextLine();
     }
 
@@ -57,6 +63,8 @@ public class ReservaEvento {
         System.out.println("DATA: " + reserva.getDia() + "/" + reserva.getMes() + "/" + reserva.getAno());
 
         System.out.println("VALOR TOTAL RESERVA: R$ " + reserva.getPrecoIngresso() * cliente.getQtdPessoas());
+
+        listaClientes.add(cliente);
     }
 
     public void alteradoSucesso() {
