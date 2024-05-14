@@ -73,23 +73,23 @@ public class ControleAereo {
         System.out.println("Digite o código da passagem do passageiro: ");
         objPassageiro.setCodigoPassagem(ler.nextLine());
         System.out.println("Digite o número do assento do passageiro: ");
-        numeroAssento = ler.nextLine();
+        objPassagem.setNumeroAssento(ler.nextLine());
         System.out.println("Digite a classe do assento do passageiro: ");
-        classeAssento = ler.nextLine();
+        objPassagem.setClasseAssento(ler.nextLine());
         System.out.println("Digite o dia da passagem: ");
-        dia = ler.nextInt();
+        objPassagem.setDia(ler.nextInt());
         ler.nextLine();
         System.out.println("Digite o mês da passagem: ");
-        mes = ler.nextInt();
+        objPassagem.setMes(ler.nextInt());
         ler.nextLine();
         System.out.println("Digite o ano da passagem: ");
-        ano = ler.nextInt();
+        objPassagem.setAno(ler.nextInt());
         ler.nextLine();
         System.out.println("Digite os 2 primeiros dígitos do horário da passagem: ");
-        hora1 = ler.nextInt();
+        objPassagem.setHora1(ler.nextInt());
         ler.nextLine();
         System.out.println("Digite os 2 ultimos dígitos do horário da passagem: ");
-        hora2 = ler.nextInt();
+        objPassagem.setHora2(ler.nextInt());
         ler.nextLine();
         
         System.out.println("Passageiro cadastrado com sucesso!");
@@ -141,6 +141,56 @@ public class ControleAereo {
         objAeronave.setQuantidadeAssento(ler.nextInt());
         
         System.out.println("Aeronave cadastrada com sucesso!");
+    }
+
+    // <----------------------------- LISTAR ----------------------------->//
+
+    public void ListarPassageiro(){
+
+        System.out.println("---------------------------------------------");
+        System.out.println("Nome: " + objPassageiro.getNomePessoa());
+        System.out.println("RG: " + objPassageiro.getRgPessoa());
+        System.out.println("Código da bagagem: " + objPassageiro.getIdentificadorBagagem());
+        System.out.println("Código da passagem: " + objPassageiro.getCodigoPassagem());
+        System.out.println("Número do assento: " + objPassagem.getNumeroAssento());
+        System.out.println("Classe do assento: " + objPassagem.getClasseAssento());
+        System.out.println("Dia: " + objPassagem.getDia());
+        System.out.println("Mês: " + objPassagem.getMes());
+        System.out.println("Ano: " + objPassagem.getAno());
+        System.out.println("Hora: " + objPassagem.getHora1() + " : " + objPassagem.getHora2());
+        
+    }
+    
+    public void ListarComandante(){
+
+        System.out.println("---------------------------------------------");
+        System.out.println("Nome: " + objComandante.getNomePessoa());
+        System.out.println("RG: " + objComandante.getRgPessoa());
+        System.out.println("Código da aeronáutica: " + objComandante.getIdentificacaoAeronautica());
+        System.out.println("Matrícula do funcionário: " + objComandante.getMatriculaFuncionario());
+        System.out.println("Total horas de voo: " + objComandante.getTotalHorasVoo());
+        
+    }
+    
+    public void ListarComissario(){
+        
+        System.out.println("---------------------------------------------");
+        System.out.println("Nome: " + objComissario.getNomePessoa());
+        System.out.println("RG: " + objComissario.getRgPessoa());
+        System.out.println("Código da aeronáutica: " + objComissario.getIdentificacaoAeronautica());
+        System.out.println("Matrícula do funcionário: " + objComissario.getMatriculaFuncionario());
+        System.out.println("Idiomas fluentes: " + objComissario.getIdiomasFluentes());
+        
+    }
+    
+    public void ListarAeronave(){
+        
+        System.out.println("---------------------------------------------");
+        System.out.println("Código da aeronave: " + objAeronave.getCodigoAeronave());
+        System.out.println("Tipo da aeronave: " + objAeronave.getTipoAeronave());
+        System.out.println("Quantidade de assentos: " + objAeronave.getQuantidadeAssento());
+
+
     }
     
     
