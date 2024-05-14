@@ -1,9 +1,8 @@
 package br.edu.up.modelos;
 
-public class Comissario {
+public class Comissario extends Tripulacao{
 
     private String idiomasFluentes;
-
     
     public Comissario() {
     }

@@ -1,6 +1,6 @@
 package br.edu.up.modelos;
 
-public class Passagem {
+public class Passagem { 
 
 
     private String numeroAssento;
@@ -11,6 +11,7 @@ public class Passagem {
     private int ano;
     private int hora1;
     private int hora2;
+
 
 
     
