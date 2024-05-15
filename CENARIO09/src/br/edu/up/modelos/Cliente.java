@@ -53,15 +53,16 @@ public abstract class Cliente {
     }
 
     public void setVlrEmprestado(double vlrEmprestado) {
-        this.vlrEmprestado = vlrEmprestado;
+        this.vlrEmprestado += vlrEmprestado;
     }
 
     public void emprestar(double valor) {
-
+        this.vlrEmprestado += valor;
     }
 
     public double devolver(double valor) {
-        return valor;
+        this.vlrEmprestado -= valor;
+        return vlrEmprestado;
     }
 
     public double getSaldo(double valor) {
