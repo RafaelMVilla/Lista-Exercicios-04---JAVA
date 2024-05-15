@@ -8,9 +8,9 @@ public class MostrarMenu {
     public void mostrar() {
 
         ControleAereo objControleAereo = new ControleAereo();
-        
+
         Scanner ler = new Scanner(System.in);
-        
+
         int opcao = 0;
         int opcaoCadastro = 0;
         int opcaoExcluir = 0;
@@ -25,11 +25,9 @@ public class MostrarMenu {
         opcao = ler.nextInt();
         ler.nextLine();
 
-
         switch (opcao) {
             case 1:
-            
-                
+
                 System.out.println("---------------------------------------------");
                 System.out.println("1 - Cadastrar Passageiro");
                 System.out.println("2 - Cadastrar Comandante");
@@ -39,92 +37,89 @@ public class MostrarMenu {
                 System.out.printf("Digite a opção desejada: ");
                 opcaoCadastro = ler.nextInt();
                 ler.nextLine();
-                
-                
+
                 switch (opcaoCadastro) {
-                    
-                case 1:
-                
-                    System.out.println("---------------------------------------------");
-                    objControleAereo.CadastrarPassageiro();
-                
-                break;
-                    
-                case 2:
-                    
-                    System.out.println("---------------------------------------------");
-                    objControleAereo.CadastrarComandante();
 
-                    break;
-                    
-                case 3:
-                    
-                    System.out.println("---------------------------------------------");
-                    objControleAereo.CadastrarComissario();
+                    case 1:
 
-                    break;
-                
-                case 4:
-                    
-                    System.out.println("---------------------------------------------");
-                    objControleAereo.CadastrarAeronave();
-                    
-                    break;
+                        System.out.println("---------------------------------------------");
+                        objControleAereo.CadastrarPassageiro();
+
+                        break;
+
+                    case 2:
+
+                        System.out.println("---------------------------------------------");
+                        objControleAereo.CadastrarComandante();
+
+                        break;
+
+                    case 3:
+
+                        System.out.println("---------------------------------------------");
+                        objControleAereo.CadastrarComissario();
+
+                        break;
+
+                    case 4:
+
+                        System.out.println("---------------------------------------------");
+                        objControleAereo.CadastrarAeronave();
+
+                        break;
                 }
 
                 break;
-                
 
             case 2:
-            
-            System.out.println("---------------------------------------------");
-            System.out.println("1 - Excluir Passageiro");
-            System.out.println("2 - Excluir Comandante");
-            System.out.println("3 - Excluir Comissário");
-            System.out.println("4 - Excluir Aeronave");
-            System.out.println("5 - Sair");
-            System.out.printf("Digite a opção desejada: ");
-            opcaoExcluir = ler.nextInt();
-            ler.nextLine();
-        
-
-            switch (opcaoExcluir) {
-                case 1:
-                
-                System.out.println("---------------------------------------------");
-                objControleAereo.ExcluirPassageiro();
-
-                    break;
-
-                case 2:
 
                 System.out.println("---------------------------------------------");
-                objControleAereo.ExcluirComandante();
+                System.out.println("1 - Excluir Passageiro");
+                System.out.println("2 - Excluir Comandante");
+                System.out.println("3 - Excluir Comissário");
+                System.out.println("4 - Excluir Aeronave");
+                System.out.println("5 - Sair");
+                System.out.printf("Digite a opção desejada: ");
+                opcaoExcluir = ler.nextInt();
+                ler.nextLine();
 
-                    break;
-                    
-                case 3:
+                switch (opcaoExcluir) {
+                    case 1:
 
-                System.out.println("---------------------------------------------");
-                objControleAereo.ExcluirComissario();
-                    
-                    break;
-                    
-                case 4:
+                        System.out.println("---------------------------------------------");
+                        objControleAereo.ExcluirPassageiro();
 
-                System.out.println("---------------------------------------------");
-                objControleAereo.ExcluirAeronave();
-                    
-                    break;
+                        break;
 
-                case 5:
+                    case 2:
 
-                System.out.println("---------------------------------------------");
-                System.out.println("ENCERRANDO...");
-                System.out.println("---------------------------------------------");
+                        System.out.println("---------------------------------------------");
+                        objControleAereo.ExcluirComandante();
 
-                break;
-            }
+                        break;
+
+                    case 3:
+
+                        System.out.println("---------------------------------------------");
+                        objControleAereo.ExcluirComissario();
+
+                        break;
+
+                    case 4:
+
+                        System.out.println("---------------------------------------------");
+                        objControleAereo.ExcluirAeronave();
+
+                        break;
+
+                    case 5:
+
+                        System.out.println("---------------------------------------------");
+                        System.out.println("ENCERRANDO...");
+                        System.out.println("---------------------------------------------");
+
+                        break;
+                }
                 break;
             case 3:
 
@@ -132,10 +127,9 @@ public class MostrarMenu {
                 System.out.println("ENCERRANDO...");
                 System.out.println("---------------------------------------------");
 
-                    break;
+                break;
         }
-        
-    
+
         ler.close();
     }
 }
