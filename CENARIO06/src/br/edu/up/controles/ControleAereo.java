@@ -1,30 +1,70 @@
-package br.edu.up.controles;   
-
-import java.util.ArrayList;
-import java.util.List;
+package br.edu.up.controles;
 
 import br.edu.up.modelos.Aeronave;
 import br.edu.up.modelos.Comandante;
 import br.edu.up.modelos.Comissario;
 import br.edu.up.modelos.Passageiro;
+import br.edu.up.modelos.Passagem;
+import br.edu.up.modelos.Pessoa;
+import br.edu.up.modelos.Tripulacao;
 
+import java.util.Scanner;
 
 public class ControleAereo {
 
-    private ArrayList<Passageiro> listaPassageiros = new ArrayList<Passageiro>();
-    private ArrayList<Comandante> listaComandantes = new ArrayList<Comandante>();
-    private ArrayList<Comissario> listaComissarios = new ArrayList<Comissario>();
-    private ArrayList<Aeronave> listaAeronaves = new ArrayList<Aeronave>();
+    Scanner ler = new Scanner(System.in);
+
+    Pessoa objPessoa = new Pessoa();
+    Passageiro objPassageiro = new Passageiro();
+    Passagem objPassagem = new Passagem();
+    Comandante objComandante = new Comandante();
+    Comissario objComissario = new Comissario();
+    Aeronave objAeronave = new Aeronave();
+    Tripulacao objTripulacao = new Tripulacao();
+
+
    
     
     // <----------------------------- CADASTRAR ----------------------------->//
-    public void cadastroPassageiro(){
+    public void CadastrarPassageiro(){
+
 
         
+        System.out.println("Digite o nome do passageiro: ");
+        objPassageiro.setNomePessoa(ler.nextLine());
+        System.out.println("Digite o RG do passageiro: ");
+        objPassageiro.setRgPessoa(ler.nextInt());
+        ler.nextLine();
+        System.out.println("Digite o código da bagagem do passageiro: ");
+        objPassageiro.setIdentificadorBagagem(ler.nextLine());
+
+        System.out.println("Digite o código da passagem do passageiro: ");
+        objPassageiro.setCodigoPassagem(ler.nextLine());
+        System.out.println("Digite o número do assento do passageiro: ");
+        objPassagem.setNumeroAssento(ler.nextLine());
+        System.out.println("Digite a classe do assento do passageiro: ");
+        objPassagem.setClasseAssento(ler.nextLine());
+        System.out.println("Digite o dia da passagem: ");
+        objPassagem.setDia(ler.nextInt());
+        ler.nextLine();
+        System.out.println("Digite o mês da passagem: ");
+        objPassagem.setMes(ler.nextInt());
+        ler.nextLine();
+        System.out.println("Digite o ano da passagem: ");
+        objPassagem.setAno(ler.nextInt());
+        ler.nextLine();
+        System.out.println("Digite os 2 primeiros dígitos do horário da passagem: ");
+        objPassagem.setHora1(ler.nextInt());
+        ler.nextLine();
+        System.out.println("Digite os 2 ultimos dígitos do horário da passagem: ");
+        objPassagem.setHora2(ler.nextInt());
+        ler.nextLine();
+        
+        System.out.println("Passageiro cadastrado com sucesso!");
         
     }
     
-    public void cadastroComandante(){
+    public void CadastrarComandante(){
         
         
         System.out.println("Digite o nome do comandante: ");
@@ -41,7 +81,7 @@ public class ControleAereo {
         System.out.println("Comandante cadastrado com sucesso!");
     }
     
-    public void cadastroComissario(){
+    public void CadastrarComissario(){
         
         
         System.out.println("Digite o nome do comissário: ");
@@ -58,7 +98,7 @@ public class ControleAereo {
         System.out.println("Comissário cadastrado com sucesso!");
     }
     
-    public void cadastroAeronave(){
+    public void CadastrarAeronave(){
         
         
         System.out.println("Digite o código da aeronave: ");
@@ -73,7 +113,7 @@ public class ControleAereo {
 
     // <----------------------------- LISTAR ----------------------------->//
 
-    public void listaPassageiro(){
+    public void ListarPassageiro(){
 
         System.out.println("---------------------------------------------");
         System.out.println("Nome: " + objPassageiro.getNomePessoa());
@@ -89,7 +129,7 @@ public class ControleAereo {
         
     }
     
-    public void listaComandante(){
+    public void ListarComandante(){
 
         System.out.println("---------------------------------------------");
         System.out.println("Nome: " + objComandante.getNomePessoa());
@@ -100,7 +140,7 @@ public class ControleAereo {
         
     }
     
-    public void listaComissario(){
+    public void ListarComissario(){
         
         System.out.println("---------------------------------------------");
         System.out.println("Nome: " + objComissario.getNomePessoa());
@@ -111,7 +151,7 @@ public class ControleAereo {
         
     }
     
-    public void listaAeronave(){
+    public void ListarAeronave(){
         
         System.out.println("---------------------------------------------");
         System.out.println("Código da aeronave: " + objAeronave.getCodigoAeronave());
@@ -129,7 +169,7 @@ public class ControleAereo {
     int rgExcluir;
     String codigoAeronaveExcluir;
 
-    public void exclusaoPassageiro(){
+    public void ExcluirPassageiro(){
 
         
         System.out.println("Digite o RG do passageiro: ");
@@ -145,7 +185,7 @@ public class ControleAereo {
         
     }
     
-    public void exclusaoComandante(){
+    public void ExcluirComandante(){
         
         
         System.out.println("Digite o RG do comandante: ");
@@ -160,7 +200,7 @@ public class ControleAereo {
         System.out.println("Comandante excluído com sucesso!");
     }
     
-    public void exclusaoComissario(){
+    public void ExcluirComissario(){
         
         
         System.out.println("Digite o RG do Comissário: ");
@@ -176,7 +216,7 @@ public class ControleAereo {
         
     }
     
-    public void exclusaoAeronave(){
+    public void ExcluirAeronave(){
         
         
         System.out.println("Digite o código da aeronave: ");

@@ -2,7 +2,7 @@ package br.edu.up.modelos;
 
 public class Aluno{
     private String nome;
-    private String rg;
+    private int rg;
     private String matricula;
     private int anoIngressao;
     private String nomeCurso;
@@ -14,10 +14,10 @@ public class Aluno{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public String getRg() {
+    public int getRg() {
         return rg;
     }
-    public void setRg(String rg) {
+    public void setRg(int rg) {
         this.rg = rg;
     }
     public String getMatricula() {

@@ -48,9 +48,9 @@ public class Disciplina {
         this.professor = professor;
     }
 
-    @Override
     public String toString() {
-        return "NOME: " + nomeDisciplina + "\nIDENTIFICADOR: " + identificador + "\nCURRICULO: " + curriculo + "\nCOMPETÊNCIAS: " + competencias + "\nPROFESSOR: " + professor;
+        return "NOME: " + getNomeDisciplina() + "\nIDENTIFICADOR: " + getIdentificador() + "\nCURRICULO: "
+                + getCurriculo() + "\nCOMPETÊNCIAS: " + getCompetencias() + "\nPROFESSOR: " + getProfessor();
     }
 
 }
