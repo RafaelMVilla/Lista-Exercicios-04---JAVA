@@ -2,14 +2,19 @@ package br.edu.up.telas;
 
 import br.edu.up.controles.ControleAcademico;
 import java.util.Scanner;
+import br.edu.up.modelos.Professor;
+import br.edu.up.modelos.Aluno;
+import br.edu.up.modelos.Disciplina;
 
 public class MostrarControleAcademico {
+
+    Scanner leitor = new Scanner(System.in);
+    ControleAcademico controle = new ControleAcademico();
+    int opcao;
+    int novaOpcao;
+    int i;
+
     public void mostrarControleAcademico() {
-        Scanner leitor = new Scanner(System.in);
-        ControleAcademico controle = new ControleAcademico();
-        int opcao;
-        int novaOpcao;
-        int i;
         do {
             System.out.println("<----------- SELECIONE UMA OPÇÃO ----------->");
             System.out.println("1. CADASTRAR.");
@@ -27,18 +32,19 @@ public class MostrarControleAcademico {
                     System.out.println("3. CADASTRAR ALUNO.");
                     System.out.println("DIGITE A OPÇÃO: ");
                     novaOpcao = leitor.nextInt();
+                    leitor.nextLine();
                     switch (novaOpcao) {
                         case 1:
-                            controle.cadastroDisciplina();
-                            controle.cadastroFinalizado();
+                            cadastroDisciplina();
+                            cadastroFinalizado();
                             break;
                         case 2:
-                            controle.cadastroProfessor();
-                            controle.cadastroFinalizado();
+                            cadastroProfessor();
+                            cadastroFinalizado();
                             break;
                         case 3:
-                            controle.cadastroAluno();
-                            controle.cadastroFinalizado();
+                            cadastroAluno();
+                            cadastroFinalizado();
                             break;
                     }
                     break;
@@ -49,23 +55,24 @@ public class MostrarControleAcademico {
                     System.out.println("3. MOSTRAR ALUNO.");
                     System.out.println("DIGITE A OPÇÃO DESEJADA: ");
                     novaOpcao = leitor.nextInt();
+                    leitor.nextLine();
                     switch (novaOpcao) {
                         case 1:
-                            System.out.printf("DIGITE O INDICE DESEJADO: ");
+                            System.out.printf("DIGITE O IDENTIFICADOR: ");
                             i = leitor.nextInt();
-                            controle.mostrarDisciplina(i);
+                            mostrarDisciplina(i);
                             System.out.println("<------------------------------->");
                             break;
                         case 2:
-                            System.out.printf("DIGITE O INDICE DESEJADO: ");
+                            System.out.printf("DIGITE O NÚMERO IDENTIFICADOR: ");
                             i = leitor.nextInt();
-                            controle.mostrarProfessor(i);
+                            mostrarProfessor(i);
                             System.out.println("<------------------------------->");
                             break;
                         case 3:
-                            System.out.printf("DIGITE O INDICE DESEJADO: ");
+                            System.out.printf("DIGITE O RG DO ALUNO: ");
                             i = leitor.nextInt();
-                            controle.mostrarAluno(i);
+                            mostrarAluno(i);
                             System.out.println("<------------------------------->");
                             break;
                     }
@@ -77,26 +84,27 @@ public class MostrarControleAcademico {
                     System.out.println("3. EXCLUIR ALUNO.");
                     System.out.println("DIGITE A OPÇÃO DESEJADA: ");
                     novaOpcao = leitor.nextInt();
+                    leitor.nextLine();
                     switch (novaOpcao) {
                         case 1:
-                            System.out.printf("DIGITE O INDICE DESEJADO: ");
+                            System.out.printf("DIGITE O IDENTIFICADOR: ");
                             i = leitor.nextInt();
-                            controle.excluirDisciplina(i);
-                            controle.excluirFinalizado();
+                            excluirDisciplina(i);
+                            excluirFinalizado();
                             System.out.println("<------------------------------->");
                             break;
                         case 2:
                             System.out.printf("DIGITE O INDICE DESEJADO: ");
                             i = leitor.nextInt();
-                            controle.excluirProfessor(i);
-                            controle.excluirFinalizado();
+                            excluirProfessor(i);
+                            excluirFinalizado();
                             System.out.println("<------------------------------->");
                             break;
                         case 3:
-                            System.out.printf("DIGITE O INDICE DESEJADO: ");
+                            System.out.printf("DIGITE O RG DO ALUNO: ");
                             i = leitor.nextInt();
-                            controle.excluirAluno(i);
-                            controle.excluirFinalizado();
+                            excluirAluno(i);
+                            excluirFinalizado();
                             System.out.println("<------------------------------->");
                             break;
                     }
@@ -108,6 +116,106 @@ public class MostrarControleAcademico {
             }
         } while (opcao != 4);
 
-        leitor.close();
+    }
+
+    public void cadastroDisciplina() {
+        Disciplina disciplina = new Disciplina();
+        System.out.println("DIGITE O NOME DA DISCIPLIA: ");
+        disciplina.setNomeDisciplina(leitor.nextLine());
+        System.out.println("DIGITE O NÚMERO IDENTIFICADOR: ");
+        disciplina.setIdentificador(leitor.nextInt());
+        leitor.nextLine();
+        System.out.println("DIGITE O CURRICULO: ");
+        disciplina.setCurriculo(leitor.nextLine());
+        System.out.println("DIGITE A COMPETÊNCIAS: ");
+        disciplina.setCompetencias(leitor.nextInt());
+        leitor.nextLine();
+        System.out.println("DIGITE O PROFESSOR RESPONSÁVEL: ");
+        disciplina.setProfessor(leitor.nextLine());
+    }
+
+    public void cadastroProfessor() {
+        Professor professor = new Professor();
+        System.out.println("DIGITE O NOME DO PROFESSOR: ");
+        professor.setNome(leitor.nextLine());
+        System.out.println("DIGITE O RG: ");
+        professor.setRg(leitor.nextLine());
+        System.out.println("DIGITE A MATRICULA: ");
+        professor.setMatricula(leitor.nextLine());
+        System.out.println("DIGITE O NÚMERO DE IDENTIFICAÇÃO: ");
+        professor.setNumIdentificador(leitor.nextInt());
+        leitor.nextLine();
+        System.out.println("DIGITE A TITULAÇÃO: ");
+        professor.setTitulacao(leitor.nextLine());
+        System.out.println("DIGITE O NOME DA INSTITUIÇÃO: ");
+        professor.setNomeInstituicao(leitor.nextLine());
+        System.out.println("DIGITE O ANO DE CONCLUSÃO: ");
+        professor.setAnoConclusao(leitor.nextInt());
+        leitor.nextLine();
+        System.out.println("DIGITE O NOME DO TÍTULO: ");
+        professor.setNomeTitulo(leitor.nextLine());
+        System.out.println("DIGITE O TÍTULO DO TRABALHO: ");
+        professor.setTituloTrabalho(leitor.nextLine());
+    }
+
+    public void cadastroAluno() {
+        Aluno aluno = new Aluno();
+        System.out.println("DIGITE O NOME DO ALUNO: ");
+        aluno.setNome(leitor.nextLine());
+        System.out.println("DIGITE O RG: ");
+        aluno.setRg(leitor.nextInt());
+        System.out.println("DIGITE A MATRICULA: ");
+        aluno.setMatricula(leitor.nextLine());
+        System.out.println("DIGITE O ANO DE INGRESSÃO: ");
+        aluno.setAnoIngressao(leitor.nextInt());
+        leitor.nextLine();
+        System.out.println("DIGITE O NOME DO CURSO: ");
+        aluno.setNomeCurso(leitor.nextLine());
+        System.out.println("DIGITE O TURNO: ");
+        aluno.setTurno(leitor.nextInt());
+        leitor.nextLine();
+    }
+
+    public void cadastroFinalizado() {
+        System.out.println("<--------------------------------->");
+        System.out.println("CADASTRO FINALIZADO COM SUCESSO!!!");
+    }
+
+    public void mostrarDisciplina(int i) {
+        Disciplina disciplina = controle.mostrarDisciplina(i);
+        if (disciplina != null) {
+            System.out.println(disciplina);
+        }
+    }
+
+    public void mostrarProfessor(int i) {
+        Professor professor = controle.mostrarProfessor(i);
+        if (professor != null) {
+            System.out.println(professor);
+        }
+    }
+
+    public void mostrarAluno(int rg) {
+        Aluno aluno = controle.mostrarAluno(rg);
+        if (aluno != null) {
+            System.out.println(aluno);
+        }
+    }
+
+    public void excluirDisciplina(int i) {
+        controle.excluirDisciplina(i);
+    }
+
+    public void excluirProfessor(int i) {
+        controle.excluirProfessor(i);
+    }
+
+    public void excluirAluno(int rg) {
+        controle.excluirAluno(rg);
+    }
+
+    public void excluirFinalizado() {
+        System.out.println("<--------------------------------->");
+        System.out.println("EXCLUIDO COM SUCESSO!!!");
     }
 }
