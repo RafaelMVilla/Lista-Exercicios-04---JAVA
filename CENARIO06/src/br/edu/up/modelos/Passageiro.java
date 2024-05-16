@@ -6,6 +6,7 @@ public class Passageiro extends Pessoa{
     private String identificadorBagagem;
     private String codigoPassagem;
 
+    // tem uma passagem
     private Passagem passagem;
 
 

@@ -2,7 +2,6 @@ package br.edu.up.modelos;
 
 public class Passagem { 
 
-
     private String numeroAssento;
     private String classeAssento;
     
@@ -61,7 +60,5 @@ public class Passagem {
     public void setHora2(int hora2) {
         this.hora2 = hora2;
     }
-
-    
 
 }

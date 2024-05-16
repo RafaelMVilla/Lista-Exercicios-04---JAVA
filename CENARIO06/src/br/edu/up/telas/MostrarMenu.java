@@ -1,15 +1,19 @@
 package br.edu.up.telas;
 
 import br.edu.up.controles.ControleAereo;
+import br.edu.up.modelos.Passageiro;
+import br.edu.up.modelos.Passagem;
+
 import java.util.Scanner;
 
 public class MostrarMenu {
 
+    ControleAereo objControleAereo = new ControleAereo();
+    Scanner ler = new Scanner(System.in);
+
     public void mostrar() {
 
-        ControleAereo objControleAereo = new ControleAereo();
         
-        Scanner ler = new Scanner(System.in);
         
         int opcao = 0;
         int opcaoCadastro = 0;
@@ -200,5 +204,43 @@ public class MostrarMenu {
         } while (opcao != 4);
     
         ler.close();
+    }
+
+    public void cadastrarPassageiro(){
+
+        Passageiro objPassageiro = new Passageiro();
+        Passagem objPassagem = new Passagem();
+
+        System.out.println("Digite o nome do passageiro: ");
+        objPassageiro.setNomePessoa(ler.nextLine());
+        System.out.println("Digite o RG do passageiro: ");
+        objPassageiro.setRgPessoa(ler.nextInt());
+        ler.nextLine();
+        System.out.println("Digite o código da bagagem do passageiro: ");
+        objPassageiro.setIdentificadorBagagem(ler.nextLine());
+
+        System.out.println("Digite o código da passagem do passageiro: ");
+        objPassageiro.setCodigoPassagem(ler.nextLine());
+        System.out.println("Digite o número do assento do passageiro: ");
+        objPassagem.setNumeroAssento(ler.nextLine());
+        System.out.println("Digite a classe do assento do passageiro: ");
+        objPassagem.setClasseAssento(ler.nextLine());
+        System.out.println("Digite o dia da passagem: ");
+        objPassagem.setDia(ler.nextInt());
+        ler.nextLine();
+        System.out.println("Digite o mês da passagem: ");
+        objPassagem.setMes(ler.nextInt());
+        ler.nextLine();
+        System.out.println("Digite o ano da passagem: ");
+        objPassagem.setAno(ler.nextInt());
+        ler.nextLine();
+        System.out.println("Digite os 2 primeiros dígitos do horário da passagem: ");
+        objPassagem.setHora1(ler.nextInt());
+        ler.nextLine();
+        System.out.println("Digite os 2 ultimos dígitos do horário da passagem: ");
+        objPassagem.setHora2(ler.nextInt());
+        ler.nextLine();
+        
+        System.out.println("Passageiro cadastrado com sucesso!");
     }
 }
