@@ -2,11 +2,11 @@ package br.edu.up.modelos;
 
 public class Disciplina {
 
-    private String nomeDisciplina;
+    private String nomeDisciplina = "";
     private int identificador;
-    private String curriculo;
+    private String curriculo = "";
     private int competencias;
-    private String professor;
+    private String professor = "";
 
     public String getNomeDisciplina() {
         return nomeDisciplina;
