@@ -10,8 +10,8 @@ public class Evento {
     private int qtdVendido;
     private double precoIngresso;
 
-    public Evento(){
-        
+    public Evento() {
+
     }
 
     public Evento(String nome, int dia, int mes, int ano, String local, int lotacaoMax, int qtdVendido,
@@ -88,6 +88,12 @@ public class Evento {
 
     public void setPrecoIngresso(double precoIngresso) {
         this.precoIngresso = precoIngresso;
+    }
+
+    public String toString() {
+        return "NOME: " + nome + "\nDIA: " + dia + "\nMÊS: " + mes + "\nANO: " + ano + "\nLOCAL: " + local
+                + "\nLOTAÇÃO MAX: " + lotacaoMax + "\nQTD VENDIDO: " + qtdVendido + "\nPREÇO INGRESSO: "
+                + precoIngresso;
     }
 
 }

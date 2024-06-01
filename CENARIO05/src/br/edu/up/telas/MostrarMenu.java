@@ -1,12 +1,18 @@
 package br.edu.up.telas;
 
 import java.util.Scanner;
-import br.edu.up.controles.ReservaEvento;
+import br.edu.up.controles.ControleReserva;
+import br.edu.up.modelos.Cliente;
+import br.edu.up.modelos.Evento;
 
 public class MostrarMenu {
+
+    Scanner leitor = new Scanner(System.in);
+    ControleReserva controle = new ControleReserva();
+    int indiceEvento = 0;
+    int indiceCliente = 0;
+
     public void menuEvento() {
-        Scanner leitor = new Scanner(System.in);
-        ReservaEvento evento = new ReservaEvento();
         int opcao;
         int opcaoPrincipal;
 
@@ -27,12 +33,13 @@ public class MostrarMenu {
                     System.out.println("2. REGISTRAR RESERVA.");
                     System.out.println("DIGITE A OPÇÃO DESEJADA: ");
                     opcao = leitor.nextInt();
+                    leitor.nextLine();
                     switch (opcao) {
                         case 1:
-                            evento.registrarEvento();
+                            registrarEvento();
                             break;
                         case 2:
-                            evento.registrarReserva();
+                            registrarReserva();
                             break;
                     }
                     break;
@@ -54,28 +61,33 @@ public class MostrarMenu {
                             System.out.println("7. ALTERAR PREÇO INGRESSO");
                             System.out.println("DIGITE A OPÇÃO DESEJADA: ");
                             opcao = leitor.nextInt();
+                            leitor.nextLine();
                             switch (opcao) {
                                 case 1:
-                                    evento.alterarNome();
+                                    System.out.println("DIGITE O NOME DO EVENTO: ");
+                                    String nome = leitor.nextLine();
+                                    alterarNomeEvento(nome);
                                     break;
                                 case 2:
-                                    evento.alterarDia();
+                                    System.out.println("DIGITE O NOME DO EVENTO: ");
+                                    nome = leitor.nextLine();
+                                    alterarDia(nome);
                                     break;
-                                case 3:
-                                    evento.alterarMes();
-                                    break;
-                                case 4:
-                                    evento.alterarAno();
-                                    break;
-                                case 5:
-                                    evento.alterarLocal();
-                                    break;
-                                case 6:
-                                    evento.alterarLotacao();
-                                    break;
-                                case 7:
-                                    evento.alterarPreco();
-                                    break;
+                                // case 3:
+                                // alterarMes();
+                                // break;
+                                // case 4:
+                                // evento.alterarAno();
+                                // break;
+                                // case 5:
+                                // evento.alterarLocal();
+                                // break;
+                                // case 6:
+                                // evento.alterarLotacao();
+                                // break;
+                                // case 7:
+                                // evento.alterarPreco();
+                                // break;
                             }
                             break;
                         case 2:
@@ -86,10 +98,10 @@ public class MostrarMenu {
                             opcao = leitor.nextInt();
                             switch (opcao) {
                                 case 1:
-                                    evento.alterarNomeResponsavel();
+                                    // evento.alterarNomeResponsavel();
                                     break;
                                 case 2:
-                                    evento.alterarQtdPessoas();
+                                    // evento.alterarQtdPessoas();
                                     break;
                             }
                             break;
@@ -101,12 +113,15 @@ public class MostrarMenu {
                     System.out.println("2. LISTAR CLIENTE");
                     System.out.println("DIGITE A OPÇÃO DESEJADA: ");
                     opcao = leitor.nextInt();
+                    leitor.nextLine();
                     switch (opcao) {
                         case 1:
-                            evento.listarEvento();
+                            System.out.println("DIGITE O NOME: ");
+                            String nome = leitor.nextLine();
+                            listarEvento(nome);
                             break;
                         case 2:
-                            evento.listarCliente();
+                            // evento.listarCliente();
                             break;
                     }
                     break;
@@ -118,10 +133,10 @@ public class MostrarMenu {
                     opcao = leitor.nextInt();
                     switch (opcao) {
                         case 1:
-                            evento.excluirEvento();
+                            // evento.excluirEvento();
                             break;
                         case 2:
-                            evento.excluirCliente();
+                            // evento.excluirCliente();
                             break;
                     }
                     break;
@@ -132,5 +147,100 @@ public class MostrarMenu {
         } while (opcaoPrincipal != 5);
 
         leitor.close();
+    }
+
+    public void registrarEvento() {
+        Evento evento = new Evento();
+
+        System.out.println("DIGITE O NOME: ");
+        evento.setNome(leitor.nextLine());
+
+        System.out.println("DIGITE O DIA: ");
+        evento.setDia(leitor.nextInt());
+
+        System.out.println("DIGITE O MÊS: ");
+        evento.setMes(leitor.nextInt());
+
+        System.out.println("DIGITE O ANO: ");
+        evento.setAno(leitor.nextInt());
+
+        leitor.nextLine();
+
+        System.out.println("DIGITE O LOCAL: ");
+        evento.setLocal(leitor.nextLine());
+
+        System.out.println("DIGITE A LOTAÇÃO MÁXIMA DO EVENTO: ");
+        evento.setLotacaoMax(leitor.nextInt());
+
+        System.out.println("DIGITE O PREÇO DO INGRESSO: ");
+        evento.setPrecoIngresso(leitor.nextDouble());
+        leitor.nextLine();
+
+        controle.registrarEvento(evento);
+
+    }
+
+    public void registrarReserva() {
+        for (int i = 0; i < 2; i++) {
+            Cliente cliente = new Cliente();
+            System.out.println("DIGITE O NOME DO RESPONSÁVEL PELA RESERVA: ");
+            cliente.setNomeResponsavel(leitor.nextLine());
+
+            System.out.println("DIGITE A QUANTIDADE DE PESSOAS: ");
+            cliente.setQtdPessoas(leitor.nextInt());
+
+            controle.registrarReserva(cliente, i);
+        }
+    }
+
+    public void alterarNomeEvento(String nome) {
+
+        Evento evento = controle.buscarPorNomeEvento(nome);
+
+        if (evento != null) {
+            System.out.println("DIGITE O NOVO NOME: ");
+            String nomeNovo = leitor.nextLine();
+            controle.alterarNome(nomeNovo);
+            alteradoSucesso();
+        }
+
+    }
+
+    public void alterarDia(String nome) {
+        Evento evento = controle.buscarPorNomeEvento(nome);
+
+        if (evento != null) {
+            System.out.println("DIGITE O NOVO DIA: ");
+            int dia = leitor.nextInt();
+            controle.alterarDia(dia);
+            alteradoSucesso();
+        }
+    }
+
+    // public void alterarMes() {
+    // System.out.println("DIGITE O NOVO MÊS: ");
+    // int mes = leitor.nextInt();
+
+    // System.out.println("DIGITE O INDICE DO EVENTO: ");
+    // int indice = leitor.nextInt();
+
+    // controle.alterarMes(mes, indice);
+
+    // alteradoSucesso();
+    // }
+
+    public void alteradoSucesso() {
+        System.out.println("ALTERADO COM SUCESSO!");
+    }
+
+    public void listarEvento(String nome) {
+
+        Evento evento = controle.buscarPorNomeEvento(nome);
+
+        if (evento != null) {
+            System.out.println("<--------------- EVENTO --------------->");
+            System.out.println(evento);
+        }
+
     }
 }
