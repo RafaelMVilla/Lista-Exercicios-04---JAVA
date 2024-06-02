@@ -24,6 +24,15 @@ public class ControleReserva {
         return null;
     }
 
+    public Cliente buscarPorNomeResponsavel(String nomeResponsavel) {
+        for (int i = 0; i < 2; i++) {
+            if (clientes[i].getNomeResponsavel().equals(nomeResponsavel)) {
+                return clientes[i];
+            }
+        }
+        return null;
+    }
+
     public void alterarNome(String novoNome) {
         this.evento.setNome(novoNome);
     }
@@ -32,39 +41,33 @@ public class ControleReserva {
         this.evento.setDia(diaNovo);
     }
 
-    // public void alterarMes(int mes, int indice) {
-    // eventos[indice].setMes(mes);
-    // }
+    public void alterarMes(int mes) {
+        this.evento.setMes(mes);
+    }
 
-    // public void alterarAno() {
-    // System.out.println("DIGITE O NOVO ANO: ");
-    // reserva.setAno(leitor.nextInt());
-    // alteradoSucesso();
-    // }
+    public void alterarAno(int ano) {
+        this.evento.setAno(ano);
+    }
 
-    // public void alterarLocal() {
-    // System.out.println("DIGITE O NOVO LOCAL: ");
-    // reserva.setLocal(leitor.nextLine());
-    // alteradoSucesso();
-    // }
+    public void alterarLocal(String local) {
+        this.evento.setLocal(local);
+    }
 
-    // public void alterarLotacao() {
-    // System.out.println("DIGITE O NOVA LOTAÇÃO MAX: ");
-    // reserva.setLotacaoMax(leitor.nextInt());
-    // alteradoSucesso();
-    // }
+    public void alterarLotacao(int lotacao) {
+        this.evento.setLotacaoMax(lotacao);
+    }
 
-    // public void alterarPreco() {
-    // System.out.println("DIGITE O NOVO PREÇO: ");
-    // reserva.setPrecoIngresso(leitor.nextDouble());
-    // alteradoSucesso();
-    // }
+    public void alterarPreco(double preco) {
+        this.evento.setPrecoIngresso(preco);
+    }
 
-    // public void alterarNomeResponsavel() {
-    // System.out.println("DIGITE O NOVO NOME: ");
-    // cliente.setNomeResponsavel(leitor.nextLine());
-    // alteradoSucesso();
-    // }
+    public void alterarNomeResponsavel(String nomeResponsavel, String novoNomeResponsavel) {
+        for (int i = 0; i < 2; i++) {
+            if (clientes[i].getNomeResponsavel().equals(nomeResponsavel)) {
+                this.clientes[i].setNomeResponsavel(nomeResponsavel);
+            }
+        }
+    }
 
     // public void alterarQtdPessoas() {
     // System.out.println("DIGITE A NOVA QUANTIDADE DE PESSOAS: ");
