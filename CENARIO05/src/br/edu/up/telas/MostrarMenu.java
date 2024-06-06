@@ -114,7 +114,9 @@ public class MostrarMenu {
                                     alterarNomeResponsavel(nomeResposavel);
                                     break;
                                 case 2:
-                                    // evento.alterarQtdPessoas();
+                                    System.out.println("DIGITE O NOME DO RESPONSÁVEL: ");
+                                    nomeResposavel = leitor.nextLine();
+                                    alterarQtdPessoas(nomeResposavel);
                                     break;
                             }
                             break;
@@ -146,12 +148,17 @@ public class MostrarMenu {
                     System.out.println("2. EXCLUIR CLIENTE");
                     System.out.println("DIGITE A OPÇÃO DESEJADA: ");
                     opcao = leitor.nextInt();
+                    leitor.nextLine();
                     switch (opcao) {
                         case 1:
-                            // evento.excluirEvento();
+                            System.out.println("DIGITE O NOME DO EVENTO QUE DESEJA EXCLUIR: ");
+                            String nomeEvento = leitor.nextLine();
+                            excluirEvento(nomeEvento);
                             break;
                         case 2:
-                            // evento.excluirCliente();
+                            System.out.println("DIGITE O NOME DO CLIENTE QUE DESEJA EXCLUIR: ");
+                            String nomeCliente = leitor.nextLine();
+                            excluirCliente(nomeCliente);
                             break;
                     }
                     break;
@@ -300,6 +307,19 @@ public class MostrarMenu {
         }
     }
 
+    public void alterarQtdPessoas(String nomeResposavel) {
+        Cliente cliente = controle.buscarPorNomeResponsavel(nomeResposavel);
+
+        String nome = nomeResposavel;
+
+        if (cliente != null) {
+            System.out.println("DIGITE A NOVA QUANTIDADE DE PESSOAS: ");
+            int novaQtdPessoas = leitor.nextInt();
+            controle.alterarQtdPessoas(nome, novaQtdPessoas);
+            alteradoSucesso();
+        }
+    }
+
     public void alteradoSucesso() {
         System.out.println("ALTERADO COM SUCESSO!");
     }
@@ -321,6 +341,24 @@ public class MostrarMenu {
         if (cliente != null) {
             System.out.println("<--------------- RESERVA --------------->");
             System.out.println(cliente);
+        }
+    }
+
+    public void excluirEvento(String nomeEvento) {
+        Evento evento = controle.buscarPorNomeEvento(nomeEvento);
+
+        if (evento != null) {
+            controle.excluirEvento(nomeEvento);
+            System.out.println("EXCLUIDO COM SUCESSO!");
+        }
+    }
+
+    public void excluirCliente(String nomeCliente){
+        Cliente cliente = controle.buscarPorNomeResponsavel(nomeCliente);
+
+        if(cliente != null){
+            controle.excluirCliente(nomeCliente);
+            System.out.println("EXCLUIDO COM SUCESSO!");
         }
     }
 }

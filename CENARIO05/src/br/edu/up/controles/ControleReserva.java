@@ -64,42 +64,40 @@ public class ControleReserva {
     public void alterarNomeResponsavel(String nomeResponsavel, String novoNomeResponsavel) {
         for (int i = 0; i < 2; i++) {
             if (clientes[i].getNomeResponsavel().equals(nomeResponsavel)) {
-                this.clientes[i].setNomeResponsavel(nomeResponsavel);
+                this.clientes[i].setNomeResponsavel(novoNomeResponsavel);
             }
         }
     }
 
-    // public void alterarQtdPessoas() {
-    // System.out.println("DIGITE A NOVA QUANTIDADE DE PESSOAS: ");
-    // cliente.setQtdPessoas(leitor.nextInt());
-    // alteradoSucesso();
-    // }
+    public void alterarQtdPessoas(String nomeResponsavel,int novaQtdPessoas){
+        for(int i = 0; i < 2; i++){
+            if(clientes[i].getNomeResponsavel().equals(nomeResponsavel)){
 
-    // public void listarCliente() {
-    // System.out.println("<--------------- CLIENTE --------------->");
-    // System.out.println("NOME: " + cliente.getNomeResponsavel());
-    // System.out.println("QUANTIDADE DE PESSOAS: " + cliente.getQtdPessoas());
-    // System.out.println("PREÇO TOTAL: R$ " + reserva.getPrecoIngresso() *
-    // cliente.getQtdPessoas());
-    // }
+                this.clientes[i].setQtdPessoas(novaQtdPessoas);
+            }
+        }
+    }
 
-    // public void excluirEvento() {
-    // reserva.setNome("********");
-    // reserva.setDia(0);
-    // reserva.setMes(0);
-    // reserva.setAno(0);
-    // reserva.setLocal("********");
-    // reserva.setLotacaoMax(0);
-    // reserva.setPrecoIngresso(0);
-    // reserva.setQtdVendido(0);
-    // System.out.println("EXCLUIDO COM SUCESSO!");
-    // listarEvento();
-    // }
+    public void excluirEvento(String nomeEvento) {
+        if(nomeEvento.equals(evento.getNome())){
 
-    // public void excluirCliente() {
-    // cliente.setNomeResponsavel("********");
-    // cliente.setQtdPessoas(0);
-    // System.out.println("EXCLUIDO COM SUCESSO!");
-    // listarCliente();
-    // }
+            evento.setNome("********");
+            evento.setDia(0);
+            evento.setMes(0);
+            evento.setAno(0);
+            evento.setLocal("********");
+            evento.setLotacaoMax(0);
+            evento.setPrecoIngresso(0);
+            evento.setQtdVendido(0);
+        }
+    }
+
+    public void excluirCliente(String nomeCliente){
+        for (int i = 0; i < 2; i++) {
+            if(clientes[i].getNomeResponsavel().equals(nomeCliente)){
+                this.clientes[i].setNomeResponsavel("**********");
+                this.clientes[i].setQtdPessoas(0);
+            }
+        }
+    }
 }

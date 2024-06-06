@@ -5,6 +5,9 @@ public class Compromisso {
     private String local;
     private String assunto;
     private int hora;
+    private int dia;
+    private int mes;
+    private int ano;
 
     public Compromisso(){
         
@@ -49,5 +52,32 @@ public class Compromisso {
         this.hora = hora;
     }
 
-    
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa: " + pessoa + "\nLocal: " + local + "\nAssunto: " + assunto + "\nHora: " + hora + "\nDia: " + dia + "\nMes: " + mes + "\nAno: " + ano;
+    }
 }
